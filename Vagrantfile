@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |v|
       v.name = "web"
       v.memory = 1024
-      v.cpu = 1
+      v.cpus = 1
     end
   end
 
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |v|
       v.name = "grafana"
       v.memory = 1024
-      v.cpu = 1
+      v.cpus = 1
     end
   end
 
@@ -29,18 +29,18 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |v|
       v.name = "influxdb01"
       v.memory = 2048
-      v.cpu = 2
+      v.cpus = 2
     end
   end
 
-  config.vm.define "inflxudb02" do |inflxudb02|
+  config.vm.define "influxdb02" do |influxdb02|
     influxdb02.vm.box = "ubuntu/bionic64"
-    influxdb02.vm.hostname = "inflxudb02"
+    influxdb02.vm.hostname = "influxdb02"
 
     config.vm.provider "virtualbox" do |v|
       v.name = "influxdb02"
       v.memory = 2048
-      v.cpu = 2
+      v.cpus = 2
     end
   end
 
