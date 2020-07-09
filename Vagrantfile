@@ -1,10 +1,12 @@
+box = "generic/ubuntu1804"
+
 Vagrant.configure("2") do |config|
 
   config.vm.define "web" do |web|
-    web.vm.box = "ubuntu/bionic64"
+    web.vm.box = box
     web.vm.hostname = "web"
 
-    config.vm.provider "virtualbox" do |v|
+    web.vm.provider "virtualbox" do |v|
       v.name = "web"
       v.memory = 1024
       v.cpus = 1
@@ -12,10 +14,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "grafana" do |grafana|
-    grafana.vm.box = "ubuntu/bionic64"
+    grafana.vm.box = box
     grafana.vm.hostname = "grafana"
 
-    config.vm.provider "virtualbox" do |v|
+    grafana.vm.provider "virtualbox" do |v|
       v.name = "grafana"
       v.memory = 1024
       v.cpus = 1
@@ -23,10 +25,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "influxdb01" do |influxdb01|
-    influxdb01.vm.box = "ubuntu/bionic64"
+    influxdb01.vm.box = box
     influxdb01.vm.hostname = "influxdb01"
 
-    config.vm.provider "virtualbox" do |v|
+    influxdb01.vm.provider "virtualbox" do |v|
       v.name = "influxdb01"
       v.memory = 2048
       v.cpus = 2
@@ -34,14 +36,13 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "influxdb02" do |influxdb02|
-    influxdb02.vm.box = "ubuntu/bionic64"
+    influxdb02.vm.box = box
     influxdb02.vm.hostname = "influxdb02"
 
-    config.vm.provider "virtualbox" do |v|
+    influxdb02.vm.provider "virtualbox" do |v|
       v.name = "influxdb02"
       v.memory = 2048
       v.cpus = 2
     end
   end
-
 end
