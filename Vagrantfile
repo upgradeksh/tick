@@ -10,6 +10,9 @@ Vagrant.configure("2") do |config|
       v.name = "web"
       v.memory = 1024
       v.cpus = 1
+      ## change vga controller default(VBoxVGA) to VMSVGA
+      ## virtualbox says that "Invalid settings detected"
+      v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
   end
 
@@ -21,6 +24,7 @@ Vagrant.configure("2") do |config|
       v.name = "grafana"
       v.memory = 1024
       v.cpus = 1
+      v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
   end
 
@@ -32,6 +36,7 @@ Vagrant.configure("2") do |config|
       v.name = "influxdb01"
       v.memory = 2048
       v.cpus = 2
+      v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
   end
 
@@ -43,6 +48,7 @@ Vagrant.configure("2") do |config|
       v.name = "influxdb02"
       v.memory = 2048
       v.cpus = 2
+      v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
   end
 end
